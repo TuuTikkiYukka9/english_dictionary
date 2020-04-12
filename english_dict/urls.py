@@ -8,4 +8,3 @@ urlpatterns = [
     path('irregular_verbs/', views.irregular_verbs, name='irregular_verbs'),
     path('dictionary/', views.dictionary, name='dictionary'),
 ]
-

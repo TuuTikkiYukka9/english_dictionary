@@ -53,8 +53,8 @@ class WordPartProperty(models.Model):
 
 class IrregularVerb(models.Model):
     infinitive_word = models.ForeignKey(Word, on_delete=models.CASCADE, related_name="infinitive")
-    simple_past_word = models.ForeignKey(Word, on_delete=models.CASCADE, related_name="simple_past")#models.BigIntegerField()
-    past_particle_word = models.ForeignKey(Word, on_delete=models.CASCADE, related_name="past_particle")#models.BigIntegerField()
+    simple_past_word = models.ForeignKey(Word, on_delete=models.CASCADE, related_name="simple_past")
+    past_particle_word = models.ForeignKey(Word, on_delete=models.CASCADE, related_name="past_particle")
     description = models.TextField()
 
     def __str__(self):
