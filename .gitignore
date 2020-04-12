@@ -1,0 +1,5 @@
+/english_dict/migrations/
+/admin/settings.py
+.idea
+*.pyc
+__pycache__
