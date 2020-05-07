@@ -7,4 +7,5 @@ urlpatterns = [
     path('sounds/', views.sounds, name='sounds'),
     path('irregular_verbs/', views.irregular_verbs, name='irregular_verbs'),
     path('dictionary/', views.dictionary, name='dictionary'),
+    path('translate/', views.translate, name='translate'),
 ]

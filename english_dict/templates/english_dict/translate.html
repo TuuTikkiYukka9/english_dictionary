@@ -1,0 +1,40 @@
+{% extends "english_dict/header.html" %}
+
+{% block content %}
+{% load widget_tweaks %}
+<h2>Перевод</h2>
+<br>
+<form method="POST">
+  {% csrf_token %}
+  <p>{% render_field form.input_text name="input_text" class="form-control" rows="4" %}</p>
+  <input class="btn btn col-md-1" type="submit" value="Перевод">
+</form>
+<br>
+<br>
+<table border="1" class="table_body">
+  <tr class="table_header">
+    <th>Lemma</th>
+    <th>Word</th>
+    <th>Transcription</th>
+    <th>Translation</th>
+    <th>Frequency</th>
+  </tr>
+  {% for row in result %}
+  {% if row.word %}
+    {% for word in row.word %}
+      <tr>
+        <td>{{row.token}}</td>
+        <td>{{word.word}}</td>
+        <td>{{word.transcription}}</td>
+        <td>{{word.translation}}</td>
+        <td>{{word.frequency}}</td>
+      </tr>
+    {% endfor %}
+  {% else %}
+    <tr>
+      <td>{{row.token}}</td>
+    </tr>
+  {% endif %}
+  {% endfor %}
+</table>
+{% endblock %}

@@ -1,8 +1,5 @@
 {% extends "english_dict/header.html" %}
-
-
 {% block content %}
-
 
 <h2>Неправельные глаголы</h2>
 <br>
@@ -16,7 +13,6 @@
     <th>Transcription</th>
     <th>Translation</th>
   </tr>
-
   {% for row in result %}
   <tr class="table_body">
     <td>{{row.infinitive_word.word}}</td>

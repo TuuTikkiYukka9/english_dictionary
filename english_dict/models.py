@@ -1,6 +1,22 @@
 from django.db import models
 
 
+class WordManager(models.Manager):
+    def get_words_by_lemma(self, lemma):
+        return self.filter(lemma=lemma)
+
+    def get_dictionary(self, is_frequency, word_type):
+        if not (word_type is None):
+            filtered_words = WordPartProperty.objects.filter(property=word_type).values('word')
+            words = self.filter(word_id__in=filtered_words)
+        else:
+            words = self
+        if is_frequency:
+            return words.filter(frequency__isnull=False).order_by('frequency')
+        else:
+            return words.all().order_by('lemma')
+
+
 class Word(models.Model):
     word_id = models.BigIntegerField(primary_key=True)
     word = models.CharField(max_length=255)
@@ -8,24 +24,13 @@ class Word(models.Model):
     transcription = models.CharField(max_length=255, null=True, blank=True)
     frequency = models.BigIntegerField(null=True, blank=True)
     translation = models.TextField(null=True, blank=True)
+    objects = WordManager()
 
     def __str__(self):
         return self.lemma
 
     class Meta:
         db_table = 'words'
-
-    @staticmethod
-    def get_words(is_frequency, word_type):
-        if not (word_type is None):
-            filtered_words = WordPartProperty.objects.filter(property=word_type).values('word')
-            words = Word.objects.filter(word_id__in=filtered_words)
-        else:
-            words = Word.objects
-        if is_frequency:
-            return words.filter(frequency__isnull=False).order_by('frequency')
-        else:
-            return words.all().order_by('lemma')
 
 
 class PartProperty(models.Model):
