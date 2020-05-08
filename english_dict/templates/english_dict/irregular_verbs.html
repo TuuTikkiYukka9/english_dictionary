@@ -3,7 +3,7 @@
 
 <h2>Неправельные глаголы</h2>
 <br>
-<table  border="1">
+<table border="1">
   <tr class="table_header">
     <th>Infinitive</th>
     <th>Transcription</th>
@@ -15,13 +15,13 @@
   </tr>
   {% for row in result %}
   <tr class="table_body">
-    <td>{{row.infinitive_word.word}}</td>
-    <td>{{row.infinitive_word.transcription}}</td>
-    <td>{{row.simple_past_word.word}}</td>
-    <td>{{row.simple_past_word.transcription}}</td>
-    <td>{{row.past_particle_word.word}}</td>
-    <td>{{row.past_particle_word.transcription}}</td>
-    <td>{{row.infinitive_word.translation}}</td>
+    <td>{{ row.infinitive_word.word }}</td>
+    <td>{{ row.infinitive_word.transcription }}</td>
+    <td>{{ row.simple_past_word.word }}</td>
+    <td>{{ row.simple_past_word.transcription }}</td>
+    <td>{{ row.past_particle_word.word }}</td>
+    <td>{{ row.past_particle_word.transcription }}</td>
+    <td>{{ row.infinitive_word.translation }}</td>
   </tr>
   {% endfor %}
 </table>

@@ -67,4 +67,3 @@ class IrregularVerb(models.Model):
 
     class Meta:
         db_table = 'irregular_verbs'
-

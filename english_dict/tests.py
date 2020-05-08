@@ -3,9 +3,6 @@ from english_dict.business_logic import Translator
 
 
 class TranslatorTestCase(TestCase):
-    def setUp(self):
-        pass
-
     def test_tokenize(self):
         text = "I and my cats walked. Cats like to travel"
         self.assertEqual(Translator.tokenize(text),

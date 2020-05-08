@@ -20,21 +20,21 @@
     <th>Frequency</th>
   </tr>
   {% for row in result %}
-  {% if row.word %}
-    {% for word in row.word %}
+    {% if row.word %}
+      {% for word in row.word %}
+        <tr>
+          <td>{{ row.token }}</td>
+          <td>{{ word.word }}</td>
+          <td>{{ word.transcription }}</td>
+          <td>{{ word.translation }}</td>
+          <td>{{ word.frequency }}</td>
+        </tr>
+      {% endfor %}
+    {% else %}
       <tr>
-        <td>{{row.token}}</td>
-        <td>{{word.word}}</td>
-        <td>{{word.transcription}}</td>
-        <td>{{word.translation}}</td>
-        <td>{{word.frequency}}</td>
+        <td>{{ row.token }}</td>
       </tr>
-    {% endfor %}
-  {% else %}
-    <tr>
-      <td>{{row.token}}</td>
-    </tr>
-  {% endif %}
+    {% endif %}
   {% endfor %}
 </table>
 {% endblock %}

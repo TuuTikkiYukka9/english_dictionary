@@ -18,7 +18,7 @@ class Translator:
 
     @staticmethod
     def tokenize(input_text):
-        input_text = re.compile("[^\w]").sub(' ', input_text)
+        input_text = re.compile("[^A-Za-z]").sub(' ', input_text)
         return nltk.word_tokenize(input_text.lower())
 
     @staticmethod

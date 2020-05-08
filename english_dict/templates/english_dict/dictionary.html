@@ -4,16 +4,17 @@
 {% load widget_tweaks %}
 <h2>Словарь</h2>
 <br>
+
 <form class="form-inline" method="POST">
   {% csrf_token %}
   <div class="form-group col-md-3">
-    <label>{{form.word_type.label}}: </label>
+    <label>{{ form.word_type.label }}:</label>
     {% render_field form.word_type class="form-control" name="field" %}
   </div>
   <div class="checkbox col-md-2">
     <label class="control-label">
       {% render_field form.frequency name="field" %}
-      {{form.frequency.label}}
+      {{ form.frequency.label }}
     </label>
   </div>
   <input class="btn btn col-md-1" type="submit" value="Поиск">
@@ -21,6 +22,7 @@
 
 <br>
 <br>
+
 <table border="1" class="table_body">
   <tr class="table_header">
     <th>Word</th>
@@ -29,9 +31,9 @@
   </tr>
   {% for row in result %}
   <tr>
-    <td>{{row.word}}</td>
-    <td>{{row.transcription}}</td>
-    <td>{{row.translation}}</td>
+    <td>{{ row.word }}</td>
+    <td>{{ row.transcription }}</td>
+    <td>{{ row.translation }}</td>
   </tr>
   {% endfor %}
 </table>
