@@ -44,6 +44,19 @@
               <a href="/english_dict/translate">Перевод</a>
             </li>
           </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+              {% if user.is_authenticated %}
+              <li><a href="">{{ user.username }}</a></li>
+                <li><a class="btn btn-warning btn-sm" href="/english_dict/logout?continue={{ request.path|urlencode }}">Выход</a></li>
+                {% else %}
+              <li><a class="btn btn-warning btn-sm" href="/english_dict/login?continue={{ request.path|urlencode }}">Login</a></li>
+              <li><a class="btn btn-success btn-sm" href="/english_dict/signup?continue={{ request.path|urlencode }}">Signup</a></li>
+              {% endif %}
+            
+            </ul>
+  
+          
         </div>
       </div>
     </nav>

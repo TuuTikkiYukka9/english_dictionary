@@ -1,0 +1,24 @@
+{% extends "english_dict/header.html" %}
+{% block title %}Signup{% endblock %}
+{% block content %}
+    <h1>Регистрация:</h1>
+    <form method="post">
+        {% csrf_token %}
+        {% for field in form %}
+            <p>
+            {{ field.label_tag }}<br>
+            {{ field }}<br>
+            {% if field.help_text %}
+                <small style="color: grey">
+                    {{ field.help_text }}
+                </small>
+            {% endif %}
+            {% for error in field.errors %}
+                <p style="color: red">{{ error }}</p>
+            {% endfor %}
+            </p>
+        {% endfor %}
+        <p><input type="submit" value="Sign up"></p>
+        <input type="hidden" name="continue" value="{{ continue }}">
+    </form>
+{% endblock %}
