@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class WordManager(models.Manager):
@@ -67,3 +68,19 @@ class IrregularVerb(models.Model):
 
     class Meta:
         db_table = 'irregular_verbs'
+
+
+class WordStatuses(models.Model):
+    mane = models.CharField(max_length=255)
+
+    class Meta:
+        db_table = 'word_statuses'
+
+
+class WordsWordStatuses(models.Model):
+    word = models.ForeignKey(Word, on_delete=models.CASCADE)
+    status = models.ForeignKey(WordStatuses, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    class Meta:
+        db_table = 'words_word_statuses'
