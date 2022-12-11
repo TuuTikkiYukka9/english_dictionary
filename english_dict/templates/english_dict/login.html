@@ -1,7 +1,7 @@
 {% extends "english_dict/header.html" %}
 {% block content %}
     <h1>Вход:</h1>
-    <p style="color: red">{{ error }}</p>
+    <p class="error-text">{{ error }}</p>
     <p>Пожалуйста, введите логин и пароль:</p>
     <form action="." method="post">
         {% csrf_token %}

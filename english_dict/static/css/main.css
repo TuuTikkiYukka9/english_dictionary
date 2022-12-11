@@ -12,11 +12,23 @@
 
 table{
     width:100%;
+    border: 1px solid black;
+}
+
+th, td {
+    border: 1px solid black;
 }
 
 img.displayed {
     display: block;
     margin-left: auto;
-    margin-right: auto
+    margin-right: auto;
 }
 
+.error-text {
+    color: red;
+}
+
+.help-text {
+    color: grey;
+}
